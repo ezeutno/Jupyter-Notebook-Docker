@@ -6,6 +6,8 @@ RUN apt-get -y install texlive-xetex
 
 RUN apt-get -y install pandoc
 
+RUN apt-get -y install default-jre
+
 RUN pip --version
 
 COPY requirement.txt /requirement.txt
