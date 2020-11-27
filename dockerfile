@@ -4,6 +4,18 @@ WORKDIR /code/
 
 COPY requirement.txt /requirement.txt
 
+RUN apt update
+
+RUN apt-get install texlive-xetex
+
+RUN pip --version
+
 RUN pip install -r /requirement.txt
 
-CMD jupyter notebook --no-browser --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+RUN adduser -D jupyter jupyter
+
+RUN chown -R jupyter:jupyter /code/
+
+USER jupyter
+
+CMD jupyter notebook --no-browser --ip='*' --NotebookApp.token='' --NotebookApp.password='' 
