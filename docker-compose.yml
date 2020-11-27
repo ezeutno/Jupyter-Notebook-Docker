@@ -1,12 +1,13 @@
 version: '3.3'
 services:
   jupyter_notebook:
+    restart: on-failure
     build:
       context: '.'
       dockerfile: dockerfile
       cache_from:
         - 'Jupyter-Notebook:BDMTI'
     volumes: 
-      - './code/:/code/'
+      - './code/:/home/jupyter/code/'
     ports:
       - '8888:8888'

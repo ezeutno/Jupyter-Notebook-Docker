@@ -1,20 +1,20 @@
 FROM python:3.8
 
-WORKDIR /code/
-
-COPY requirement.txt /requirement.txt
-
 RUN apt update
 
-RUN apt-get install texlive-xetex
+RUN apt-get -y install texlive-xetex
+
+RUN apt-get -y install pandoc
 
 RUN pip --version
 
+COPY requirement.txt /requirement.txt
+
 RUN pip install -r /requirement.txt
 
-RUN adduser -D jupyter jupyter
+RUN useradd -ms /bin/bash jupyter
 
-RUN chown -R jupyter:jupyter /code/
+WORKDIR /home/jupyter/code/
 
 USER jupyter
 
