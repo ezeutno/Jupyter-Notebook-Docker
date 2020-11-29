@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   jupyter_notebook:
-    restart: on-failure
+    restart: always
     image: 'jupyter-notebook:bdmti'
     build:
       context: '.'
