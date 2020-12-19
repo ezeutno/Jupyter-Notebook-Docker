@@ -6,6 +6,8 @@ services:
     build:
       context: '.'
       dockerfile: dockerfile
+      environment:
+            JUPYTERPASSWORD: $JUPYTERPASSWORD
       cache_from:
         - 'jupyter-notebook:bdmti'
     volumes: 
