@@ -6,11 +6,10 @@ services:
     build:
       context: '.'
       dockerfile: dockerfile
-      environment:
-            JUPYTERPASSWORD: $JUPYTERPASSWORD
       cache_from:
         - 'jupyter-notebook:bdmti'
     volumes: 
       - './code/:/home/jupyter/code/'
     ports:
       - '8888:8888'
+    entrypoint: ['jupyter','notebook','--no-browser',"--ip='*'","--NotebookApp.token='$JUPYTERPASSWORD'","--NotebookApp.password=$JUPYTERPASSWORD"]
