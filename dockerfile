@@ -20,4 +20,4 @@ WORKDIR /home/jupyter/code/
 
 USER jupyter
 
-CMD jupyter notebook --no-browser --ip='*' --NotebookApp.token='' --NotebookApp.password='' 
+CMD jupyter notebook --no-browser --ip='*' --NotebookApp.token='' --NotebookApp.password=$JUPTERPASSWORD 
