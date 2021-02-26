@@ -12,4 +12,4 @@ services:
       - './code/:/home/jupyter/code/'
     ports:
       - '8888:8888'
-    entrypoint: ['jupyter','notebook','--no-browser',"--ip='*'","--NotebookApp.token='$JUPYTERPASSWORD'","--NotebookApp.password=$JUPYTERPASSWORD"]
+    entrypoint: ['jupyter','notebook','--no-browser',"--ip='*'"]
